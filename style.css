@@ -1,178 +1,76 @@
-/* Page background */
+/* === style.css === */
+
+/* 1. Base reset & font */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
     margin: 0;
-    background: #f0f4f8;
     font-family: "Segoe UI", Roboto, sans-serif;
+    background: #eef2f7;
+    color: #333;
 }
 
-.role-selection,
-.login-container {
-    width: 320px;
-    margin: 60px auto;
-    background: #fff;
-    padding: 32px 24px;
-    border-radius: 10px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.09);
-    text-align: center;
-}
-
-button {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
-    background: #2851A3;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background .2s;
-}
-
-/* Card container */
-.login-card {
-    background: #ffffff;
-    padding: 2rem;
-    width: 320px;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-/* Heading */
-.login-card h2 {
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-    color: #333333;
-}
-
-/* Form groups */
-.form-group {
-    text-align: left;
-    margin-bottom: 1rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.25rem;
-    font-size: 0.9rem;
-    color: #555555;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 0.6rem 0.75rem;
-    font-size: 1rem;
-    border: 1px solid #ccd0d5;
-    border-radius: 6px;
-    transition: border-color 0.2s;
-}
-
-.form-group input:focus {
-    outline: none;
-    border-color: #4c8bf5;
-    box-shadow: 0 0 0 2px rgba(76, 139, 245, 0.2);
-}
-
-/* Password wrapper for eye icon */
-.password-wrapper {
-    position: relative;
-}
-
-.eye-btn {
-    position: absolute;
-    right: 0.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 1.1rem;
-    opacity: 0.6;
-    transition: opacity 0.2s;
-}
-
-.eye-btn:hover {
-    opacity: 1;
-}
-
-/* Primary button */
-.btn-primary {
-    width: 100%;
-    padding: 0.75rem;
-    margin-top: 0.5rem;
-    background: #4c8bf5;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.btn-primary:hover {
-    background: #3a6fd1;
-}
-
-/* Back link button */
-.back-link {
-    margin-top: 1rem;
-    background: none;
-    border: none;
-    color: #4c8bf5;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.back-link:hover {
-    color: #3a6fd1;
-    text-decoration: underline;
-}
-
-
+/* 2. Sidebar */
 .sidebar {
     position: fixed;
-    left: 0;
     top: 0;
+    left: 0;
     bottom: 0;
     width: 200px;
-    background: #243a5e;
-    color: #fff;
-    padding-top: 40px;
+    background: #1c9711;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    padding-top: 40px;
+    gap: 4px;
 }
 
+/* 3. Sidebar links */
 .sidebar a {
-    color: #fff;
-    text-decoration: none;
-    padding: 12px 24px;
     display: block;
+    padding: 12px 24px;
+    color: #ffffff;
+    text-decoration: none;
     border-left: 3px solid transparent;
-    transition: background .2s, border .2s;
+    transition: background 0.2s, border-left 0.2s;
 }
 
+/* Highlight active or hover */
 .sidebar a.active,
 .sidebar a:hover {
     background: #193053;
     border-left: 3px solid #e8c256;
 }
 
-.main-content {
-    margin-left: 220px;
-    padding: 40px 30px;
+/* Push the last link (Logout) to the bottom */
+.sidebar a:last-child {
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* 4. Main content area */
+.main-content {
+    margin-left: 220px;
+    /* sidebar width + gap */
+    padding: 40px 30px;
+    background: #fff;
+    min-height: 100vh;
+}
+
+/* 5. Headings inside main-content */
+.main-content h1,
+.main-content h2 {
+    margin-top: 0;
+    color: #243a5e;
+}
+
+/* 6. Responsive adjustments */
 @media (max-width: 600px) {
     .sidebar {
         width: 100px;
         font-size: 13px;
+        padding-top: 20px;
     }
 
     .main-content {
